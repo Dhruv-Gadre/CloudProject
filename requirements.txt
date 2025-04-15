@@ -1,0 +1,6 @@
+streamlit
+Pillow
+firebase-admin
+pymongo
+cloudinary
+requests
