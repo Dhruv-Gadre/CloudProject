@@ -65,7 +65,7 @@ class StorageBackend:
     def get_image_data(self, filename): pass
 
 class CloudinaryStorage(StorageBackend):
-    def _init_(self):
+    def __init__(self):
         cloudinary.config(
             cloud_name=st.secrets["cloudinary"]["cloud_name"],
             api_key=st.secrets["cloudinary"]["api_key"],
@@ -131,7 +131,7 @@ class FirebaseStorage(StorageBackend):
             return None
 
 class LocalStorage(StorageBackend):
-    def _init_(self, folder):
+    def __init__(self, folder):
         self.folder = folder
         os.makedirs(folder, exist_ok=True)
 
@@ -281,8 +281,8 @@ def get_user_images(username):
 # ==== Main App ====
 
 def main():
-    st.set_page_config(page_title="Cloud Storage App", page_icon="☁", layout="wide")
-    st.title("☁ Cloud Storage with Firebase & Cloudinary")
+    st.set_page_config(page_title="Cloud Storage App", page_icon="☁️", layout="wide")
+    st.title("☁️ Cloud Storage with Firebase & Cloudinary")
 
     if "authenticated" not in st.session_state:
         st.session_state.authenticated = False
@@ -370,5 +370,5 @@ def main():
     else:
         st.info("Please login or register to use the app.")
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
